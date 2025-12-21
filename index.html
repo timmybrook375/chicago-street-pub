@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Chicago Street Pub, Grill & Banquets — burgers, wings, pizza, fish fry, and daily specials." />
+  <title>Chicago Street Pub, Grill & Banquets</title>
+
+  <style>
+    :root{
+      --bg:#0b0d10;
+      --panel:#121720;
+      --panel2:#0f141c;
+      --text:#eef3fb;
+      --muted:#a7b0bf;
+      --line:rgba(255,255,255,.10);
+      --accent:#f2c14e;     /* warm gold */
+      --accent2:#60a5fa;    /* calm blue */
+      --danger:#fb7185;     /* hot */
+      --ok:#34d399;         /* mild */
+      --shadow:0 16px 40px rgba(0,0,0,.40);
+      --radius:18px;
+      --max:1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(242,193,78,.12), transparent 55%),
+        radial-gradient(820px 500px at 85% 12%, rgba(96,165,250,.10), transparent 55%),
+        radial-gradient(900px 700px at 50% 95%, rgba(255,255,255,.06), transparent 60%),
+        var(--bg);
+      line-height:1.45;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(10px);
+      background: rgba(11,13,16,.68);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:240px;
+    }
+    .logo{
+      width:52px; height:52px;
+      border-radius:14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      display:grid; place-items:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .logo img{
+      width:100%; height:100%;
+      object-fit: contain;
+      padding:6px;
+      background: rgba(0,0,0,.10);
+    }
+    .brand h1{
+      font-size:15px; margin:0; letter-spacing:.2px;
+    }
+    .brand p{
+      margin:0; font-size:12px; color:var(--muted);
+    }
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .navlink{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      transition:.18s ease;
+    }
+    .navlink:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Hero */
+    .hero{ padding:38px 0 18px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .panel{
+      background: rgba(18,23,32,.82);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{
+      padding:26px;
+      position:relative;
+      overflow:hidden;
+      min-height: 260px;
+    }
+    .hero-main::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(420px 260px at 18% 18%, rgba(242,193,78,.18), transparent 60%),
+        radial-gradient(420px 260px at 82% 22%, rgba(96,165,250,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-main > *{ position:relative; }
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom:10px;
+    }
+    .dot{ width:8px; height:8px; border-radius:50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(242,193,78,.14); }
+    .hero-title{
+      font-size: clamp(28px, 4vw, 44px);
+      line-height:1.05;
+      margin:0 0 10px;
+      letter-spacing:-.6px;
+    }
+    .hero-sub{
+      color: var(--muted);
+      margin:0 0 16px;
+      max-width: 62ch;
+    }
+    .cta-row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13px;
+      transition:.18s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); }
+    .btn.primary{
+      border-color: rgba(242,193,78,.45);
+      background: linear-gradient(180deg, rgba(242,193,78,.18), rgba(255,255,255,.04));
+    }
+    .btn.small{ padding:8px 10px; font-weight:600; }
+
+    .hero-side{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .card{
+      background: rgba(15,20,28,.70);
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .card h3{ margin:0 0 8px; font-size: 13px; color: var(--muted); letter-spacing:.2px; text-transform: uppercase; }
+    .card p{ margin:0; font-size: 14px; }
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+    .muted{ color: var(--muted); }
+
+    /* Sections */
+    section{ padding: 18px 0; }
+    .section-title{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      margin: 10px 0 12px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:-.2px;
+    }
+    .section-title .tools{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+
+    /* Menu */
+    .menu-toolbar{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      margin: 0 0 12px;
+    }
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; }
+    .chip{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+    .chip a{ color:inherit; }
+
+    .search{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      min-width: 240px;
+      flex: 1 1 280px;
+      max-width: 420px;
+    }
+    .search input{
+      width:100%;
+      border:0;
+      outline:none;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .search input::placeholder{ color: rgba(167,176,191,.8); }
+
+    .menu-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .menu-section{
+      padding: 16px;
+    }
+    .menu-section h3{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .menu-section small{
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .items{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .item{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .item-title{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 10px;
+      align-items:baseline;
+    }
+    .item-title strong{ font-size: 14px; }
+    .item-title .tag{
+      font-size:11px;
+      padding:3px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+    }
+    .tag.hot{ border-color: rgba(251,113,133,.55); color: #fecdd3; background: rgba(251,113,133,.08); }
+    .tag.med{ border-color: rgba(242,193,78,.55); color: #fde68a; background: rgba(242,193,78,.08); }
+    .tag.mild{ border-color: rgba(52,211,153,.55); color: #bbf7d0; background: rgba(52,211,153,.08); }
+
+    .desc{
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .price{
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+      white-space: nowrap;
+      padding-left: 8px;
+    }
+    .addons{
+      grid-column: 1 / -1;
+      color: rgba(167,176,191,.9);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .split-note{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Specials */
+    .specials{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .special{
+      padding: 14px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .special h4{ margin:0 0 6px; font-size: 14px; }
+    .special p{ margin:0; color: var(--muted); font-size: 13px; }
+
+    /* Footer */
+    footer{
+      padding: 24px 0 34px;
+      color: var(--muted);
+      border-top:1px solid var(--line);
+      margin-top: 18px;
+    }
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .foot small{ display:block; margin-top:6px; }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .specials{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+      .brand{ min-width: unset; }
+    }
+
+    /* Print-friendly menu */
+    @media print{
+      header, .hero, .menu-toolbar, .section-title .tools, footer { display:none !important; }
+      body{ background: #fff; color:#000; }
+      .panel, .item { box-shadow:none; background:#fff; border:1px solid #ddd; }
+      .desc, .addons, .muted { color:#333 !important; }
+      a{ text-decoration:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo" aria-label="Chicago Street Pub logo">
+            <!-- Put your provided logo image in the same folder as index.html and name it: logo.png -->
+            <img src="logo.png" alt="Chicago Street Pub, Grill & Banquets logo" />
+          </div>
+          <div>
+            <h1>Chicago Street Pub, Grill & Banquets</h1>
+            <p>Great food • Wings • Pizza • Fish Fry • Banquets</p>
+          </div>
+        </div>
+
+        <nav aria-label="Primary">
+          <a class="navlink" href="#menu">Menu</a>
+          <a class="navlink" href="#specials">Daily Specials</a>
+          <a class="navlink" href="#fishfry">Friday Fish Fry</a>
+          <a class="navlink" href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="panel hero-main">
+            <div class="kicker"><span class="dot"></span>Pub classics + thin crust pizza + wings with heat index</div>
+            <h2 class="hero-title">Food that hits. A place that feels easy.</h2>
+            <p class="hero-sub">
+              Burgers, wraps, salads, fish fry, specialty pizzas, and wings from mild to <strong>Chicago Fire***</strong>.
+              Dine in, carry out, or book your next event with our banquet space.
+            </p>
+            <div class="cta-row">
+              <a class="btn primary" href="#menu">View Menu</a>
+              <a class="btn" href="#specials">Today’s Specials</a>
+              <a class="btn" href="#contact">Call / Directions</a>
+              <button class="btn small" onclick="window.print()" type="button">Print Menu</button>
+            </div>
+          </div>
+
+          <aside class="panel hero-side">
+            <div class="card">
+              <h3>Hours</h3>
+              <p><strong>Mon–Thu:</strong> <span class="muted">4pm–Close</span></p>
+              <p><strong>Fri:</strong> <span class="muted">4pm–9pm Fish Fry</span></p>
+              <p><strong>Sat:</strong> <span class="muted">4pm–9pm</span></p>
+              <p><strong>Sun:</strong> <span class="muted">4pm–7pm</span></p>
+              <small class="muted">Update these anytime (see HTML comments).</small>
+            </div>
+
+            <div class="card grid2">
+              <div>
+                <h3>Order</h3>
+                <p class="muted">Dine In</p>
+                <p class="muted">Carry Out</p>
+              </div>
+              <div>
+                <h3>Banquets</h3>
+                <p class="muted">Parties</p>
+                <p class="muted">Events</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Quick Picks</h3>
+              <p class="muted">Pub Basket • Cheese Curds • Smokehouse Burger • Street Pub Six Pizza</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU -->
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Menu</h2>
+          <div class="tools">
+            <span class="chip">Thin crust pizzas • Pan crust +$2</span>
+            <span class="chip">Gluten-free 11"</span>
+          </div>
+        </div>
+
+        <div class="menu-toolbar">
+          <div class="chips" aria-label="Menu categories">
+            <span class="chip"><a href="#starters">Starters</a></span>
+            <span class="chip"><a href="#soups">Soups & Salads</a></span>
+            <span class="chip"><a href="#wraps">Wraps & Sandwiches</a></span>
+            <span class="chip"><a href="#burgers">Burgers</a></span>
+            <span class="chip"><a href="#pizza">Specialty Pizzas</a></span>
+            <span class="chip"><a href="#kids">Kids</a></span>
+          </div>
+
+          <label class="search" aria-label="Search menu">
+            <span class="muted">Search</span>
+            <input id="menuSearch" type="search" placeholder="wings, burger, pizza, salad..." autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="menu-grid">
+
+          <!-- STARTERS -->
+          <div id="starters" class="panel menu-section">
+            <h3>Starters <small>Great for the table</small></h3>
+            <div class="items">
+
+              <div class="item">
+                <div class="item-title"><strong>Cheese Quesadilla</strong></div>
+                <div class="price">$9.95</div>
+                <div class="desc">Cheddar & mozzarella, tomato basil tortilla. Served with sour cream, pico de gallo, and salsa.</div>
+                <div class="addons">Add Chicken +3.00 • Add Shrimp +6.00 • Add sautéed onions/green peppers/mushrooms +1.00 each</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Pub Basket</strong></div>
+                <div class="price">$14.95</div>
+                <div class="desc">Chicken tenders, mozzarella sticks, cheese curds, onion rings, fries, ravioli.</div>
+                <div class="addons">Served with ranch, honey mustard, secret sauce, and pizza sauce</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Artichoke Dip</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Artichoke hearts, scallions, garlic, Parmesan, cream cheese, green chilies.</div>
+                <div class="addons">Served with toasted French bread and tortilla chips</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Buffalo Chicken Dip</strong></div>
+                <div class="price">$10.95</div>
+                <div class="desc">Chicken, cream cheese, pepperjack, Buffalo sauce, ranch.</div>
+                <div class="addons">Served with toasted French bread and tortilla chips</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Nachos</strong></div>
+                <div class="price">$14.95</div>
+                <div class="desc">Chips topped with chili, nacho cheese, lettuce, pico, olives, jalapeños, cheddar.</div>
+                <div class="addons">Served with sour cream and salsa</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Cheese Bread</strong></div>
+                <div class="price">$7.95</div>
+                <div class="desc">French bread, garlic butter, mozzarella.</div>
+                <div class="addons">Served with pizza sauce</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Mozzarella Sticks</strong></div>
+                <div class="price">$9.95</div>
+                <div class="desc">Six mozzarella sticks, served with fries.</div>
+                <div class="addons">Pizza sauce</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chicken Tenders</strong></div>
+                <div class="price">$10.95</div>
+                <div class="desc">Four tenders, served with fries.</div>
+                <div class="addons">Ranch dressing</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Jalapeño Poppers</strong></div>
+                <div class="price">$9.95</div>
+                <div class="desc">Six poppers, served with fries.</div>
+                <div class="addons">Ranch dressing</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>White Cheddar Cheese Curds</strong></div>
+                <div class="price">$9.95</div>
+                <div class="desc">Served with fries and ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Walleye Fingers</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Six walleye fingers, served with coleslaw and fries.</div>
+                <div class="addons">Tartar sauce</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Breaded Ravioli</strong></div>
+                <div class="price">$9.95</div>
+                <div class="desc">Ten ravioli, served with fries.</div>
+                <div class="addons">Pizza sauce</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Cod Fillets</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Two cod fillets, served with coleslaw and fries.</div>
+                <div class="addons">Tartar sauce • Add a fillet +3.00</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Corn Dogs</strong></div>
+                <div class="price">$8.95</div>
+                <div class="desc">Eight corn dogs, served with fries and ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Breaded Mac & Cheese Bites</strong></div>
+                <div class="price">$8.95</div>
+                <div class="desc">Eight bites, served with fries and ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Greek Fries</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Fries with gyro meat, tomatoes, red & green onions, feta, tzatziki.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>French Fries</strong></div>
+                <div class="price">$6.95</div>
+                <div class="desc">Served with ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Sweet Potato Fries</strong></div>
+                <div class="price">$7.95</div>
+                <div class="desc">Served with ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Onion Rings</strong></div>
+                <div class="price">$8.95</div>
+                <div class="desc">Served with secret sauce.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Tater Tots</strong></div>
+                <div class="price">$6.95</div>
+                <div class="desc">Served with ranch.</div>
+              </div>
+
+              <div class="item" data-search="wings traditional boneless cauliflower">
+                <div class="item-title">
+                  <strong>Wings</strong>
+                  <span class="tag hot">Heat Index</span>
+                </div>
+                <div class="price">$9.95–$11.95</div>
+                <div class="desc">
+                  Traditional (8) $11.95 • Cauliflower Buds (3/4 lb) $10.95 • Boneless (3/4 lb) $9.95
+                </div>
+                <div class="addons">
+                  <strong>HOT:</strong> Chicago Fire*** • Buffalo** • Spicy Garlic* • Spicy Asian<br/>
+                  <strong>MED:</strong> Honey Sriracha • Spicy Q • Sriracha Bourbon<br/>
+                  <strong>MILD:</strong> Teriyaki • CSP • Honey Mustard • Parmesan Garlic<br/>
+                  <strong>SWEET:</strong> Honey Jack BBQ • Thai Chili • BBQ
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SOUPS & SALADS -->
+          <div id="soups" class="panel menu-section">
+            <h3>Soups & Salads <small>Fresh + filling</small></h3>
+            <div class="items">
+
+              <div class="item">
+                <div class="item-title"><strong>Soups of the Day</strong></div>
+                <div class="price">$3.45 / $4.95</div>
+                <div class="desc">Cup $3.45 • Bowl $4.95</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chili with Noodles</strong></div>
+                <div class="price">$3.95 / $5.95</div>
+                <div class="desc">Cup $3.95 • Bowl $5.95</div>
+                <div class="addons">Loaded (cheese, onion & sour cream) +1.00</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Soup - Salad - Breadstick</strong></div>
+                <div class="price">$8.95</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chili - Salad - Breadstick</strong></div>
+                <div class="price">$9.95</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chef Salad</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Lettuce, ham, turkey, bacon, hard-boiled egg, tomatoes, cheddar, mozzarella, red onions, croutons + breadstick.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Big Chicken Salad</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Lettuce, chicken, bacon, tomatoes, cheddar, red onions, croutons + breadstick.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chicken Durango Salad</strong></div>
+                <div class="price">$13.95</div>
+                <div class="desc">Cajun chicken, cheddar, mozzarella, pico, green peppers, guacamole, tortilla strips, spicy ranch + breadstick.</div>
+                <div class="addons">Substitute Cajun shrimp +3.00</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>House Salad</strong></div>
+                <div class="price">$6.95</div>
+                <div class="desc">Lettuce, tomatoes, cheddar, red onions, croutons.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Dressings</strong></div>
+                <div class="price">—</div>
+                <div class="desc">Ranch, French, Fat Free French, Balsamic Vinaigrette, Raspberry Vinaigrette, 1000 Island, Caesar, Honey Mustard, Italian, Bleu Cheese</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- WRAPS & SANDWICHES -->
+          <div id="wraps" class="panel menu-section">
+            <h3>Sandwiches & Wraps <small>Served with fries • swap sides +$1</small></h3>
+            <div class="items">
+              <div class="item">
+                <div class="item-title"><strong>Chicken Bacon Ranch Wrap</strong></div>
+                <div class="price">$10.95</div>
+                <div class="desc">Tomato basil wrap with chicken, bacon, lettuce, tomatoes, cheddar + ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chicken Caesar Wrap</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Chicken, lettuce, red onions, tomatoes, croutons, Parmesan + Caesar.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Buffalo Chicken Wrap</strong></div>
+                <div class="price">$10.95</div>
+                <div class="desc">Chicken, lettuce, tomatoes, cheddar + ranch & Buffalo.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Turkey Bacon Ranch Wrap</strong></div>
+                <div class="price">$10.95</div>
+                <div class="desc">Turkey, bacon, lettuce, tomatoes, cheddar + ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Honey Mustard Wrap</strong></div>
+                <div class="price">$10.95</div>
+                <div class="desc">Chicken, lettuce, cheddar + honey mustard.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Spicy Italian Wrap</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Italian beef, fried onions, green peppers, mushrooms, provolone + chipotle mayo.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chicken Sandwich</strong></div>
+                <div class="price">$10.95</div>
+                <div class="desc">Grilled chicken on a kaiser with lettuce, tomato & mayo.</div>
+                <div class="addons">Add cheese & bacon +2.00</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Breaded Chicken Sandwich</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Breaded chicken on a kaiser with lettuce, tomato, pickles & honey mustard.</div>
+                <div class="addons">Add cheese & bacon +2.00</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Fish Sandwich</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Two beer battered cod fillets on a kaiser with lettuce, tomato, red onion & tartar.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Philly Sandwich</strong></div>
+                <div class="price">$14.95</div>
+                <div class="desc">French bread with Italian beef, sautéed onions & green peppers, cheddar & mozzarella.</div>
+                <div class="addons">Sub chicken at no additional charge</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Legendary Grilled Club</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Marble rye with ham, turkey, bacon, cheddar, lettuce, tomato & mayo.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Gyro</strong></div>
+                <div class="price">$13.95</div>
+                <div class="desc">Naan bread with gyro meat, feta, lettuce, tomato, red onion & tzatziki.</div>
+              </div>
+
+              <div class="split-note">Sides: fries • sweet potato fries +$1 • onion rings +$1 • tater tots</div>
+            </div>
+          </div>
+
+          <!-- BURGERS -->
+          <div id="burgers" class="panel menu-section">
+            <h3>Burgers <small>Served with lettuce & tomato • Add patty +$2</small></h3>
+            <div class="items">
+              <div class="item">
+                <div class="item-title"><strong>Hamburger</strong></div>
+                <div class="price">$8.95</div>
+                <div class="desc">Served on a kaiser roll. Pickles/onions on request.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Cheeseburger</strong></div>
+                <div class="price">$9.95</div>
+                <div class="desc">Choice of American, Swiss, pepper jack, provolone, or cheddar.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Bacon Cheeseburger</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Bacon + your choice of cheese.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Mushroom Swiss Burger</strong></div>
+                <div class="price">$10.95</div>
+                <div class="desc">Sautéed mushrooms + Swiss.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Smokehouse Burger</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Brioche bun with bacon, cheddar, French fried onions + chipotle smokehouse sauce.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Eagle Burger</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Brioche bun with bacon, fried egg, fried onions + American.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Jalapeño Burger</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Brioche bun with jalapeños, bacon, pepper jack + chipotle mayo.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>CSP Burger</strong></div>
+                <div class="price">$14.95</div>
+                <div class="desc">Brioche bun with brat patty + burger patty, fried onions, pickles, Swiss + cheddar.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Northwoods Burger</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Sourdough bun, Northwoods steak seasoning, sautéed mushrooms, provolone + A-1.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Cheesecurd Burger</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Brioche bun with white cheddar curds, cheddar, mozzarella + ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Patty Melt</strong></div>
+                <div class="price">$13.95</div>
+                <div class="desc">Marble rye with two patties, sautéed onions, Swiss + Thousand Island.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FISH FRY -->
+          <div id="fishfry" class="panel menu-section">
+            <h3>Friday Fish Fry <small>Fridays 4:00pm–9:00pm • While supplies last</small></h3>
+            <div class="items">
+              <div class="item">
+                <div class="item-title"><strong>Fish Sandwich</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Two beer battered cod fillets on a kaiser with tartar, lettuce, tomato, red onion, coleslaw + side.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Perch Sandwich</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Hand breaded perch on rye with tartar, lettuce, tomato, red onion, coleslaw + side.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Butterfly Perch</strong></div>
+                <div class="price">$15.95</div>
+                <div class="desc">Hand breaded, served with tartar, rye bread, red onion, lemon, coleslaw + side.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Walleye Fingers</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Six, served with tartar, rye bread, red onion, lemon, coleslaw + side.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Breaded Shrimp</strong></div>
+                <div class="price">$14.95</div>
+                <div class="desc">Eight tail-on, deep fried. Served with cocktail, rye bread, red onion, lemon, coleslaw + side.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Baked Cod</strong></div>
+                <div class="price">$12.95</div>
+                <div class="desc">Alaskan cod baked, served with drawn butter, rye bread, red onion, lemon, coleslaw + side.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Shrimp Alfredo</strong></div>
+                <div class="price">$19.95</div>
+                <div class="desc">Sautéed shrimp, linguine, Alfredo, Parmesan + breadstick.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Fish Fillets</strong></div>
+                <div class="price">$11.95</div>
+                <div class="desc">Two beer battered cod fillets, deep fried. Served with tartar, rye bread, red onion, lemon, coleslaw + side.</div>
+                <div class="addons">Add a fillet +3.00</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Bacon Wrapped Shrimp</strong></div>
+                <div class="price">$20.95</div>
+                <div class="desc">Eight baked, served with rice and sautéed mixed vegetables.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Atlantic Salmon</strong></div>
+                <div class="price">$19.95</div>
+                <div class="desc">Baked salmon with dill sauce, wild rice, sautéed mixed vegetables.</div>
+                <div class="addons">Preparations: Plain • Apple Wood • Lemon Pepper • Cajun</div>
+              </div>
+
+              <div class="split-note">
+                Side options: fries • sweet potato fries +$1 • onion rings +$1 • tater tots • twice baked +$1 • baked potato • baby reds • wild rice • sautéed mixed vegetables
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA -->
+          <div id="pizza" class="panel menu-section">
+            <h3>Specialty Pizzas <small>Signature thin crust • Pan crust +$2</small></h3>
+            <div class="items">
+
+              <div class="item">
+                <div class="item-title"><strong>Pricing</strong></div>
+                <div class="price">$16.95+</div>
+                <div class="desc">9" $16.95 • 12" $21.95 • 16" $28.95 (select specialties vary)</div>
+                <div class="addons">11" Gluten-free crust available for any 12" pizza price</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Street Pub Six</strong></div>
+                <div class="price">—</div>
+                <div class="desc">Sauce, mozzarella, pepperoni, mushroom, red onion, green pepper, black olive, Italian sausage.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Westside</strong></div>
+                <div class="price">—</div>
+                <div class="desc">Sauce, mozzarella, Parmesan, pepperoni, Canadian bacon, mushroom, red onion, green pepper, bacon, Italian sausage, cream cheese dollops.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Meatlovers</strong></div>
+                <div class="price">—</div>
+                <div class="desc">Sauce, mozzarella, pepperoni, Canadian bacon, bacon, ground beef, Italian sausage.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Hawaiian</strong></div>
+                <div class="price">—</div>
+                <div class="desc">Sauce, mozzarella, Canadian bacon, red bell pepper, pineapple, cream cheese dollops, green onion, Thai chili drizzle.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Taco</strong></div>
+                <div class="price">—</div>
+                <div class="desc">Nacho cheese base, mozzarella, cheddar, ground beef, yellow onion, black olive, tomato, sour cream, lettuce, tortilla strips.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chicago Fire</strong> <span class="tag hot">Hot</span></div>
+                <div class="price">—</div>
+                <div class="desc">Sauce, mozzarella, cheddar, fire roasted red pepper, cracked black pepper, spicy Italian sausage.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Gyro Pizza</strong></div>
+                <div class="price">—</div>
+                <div class="desc">Tzatziki base, mozzarella, gyro meat, spinach, red onion, tomato, feta.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Build Your Own</strong></div>
+                <div class="price">$10.95+</div>
+                <div class="desc">9": Cheese $10.95 • 1 $11.95 • 2 $12.95 • 3 $13.95 • 4 $14.95</div>
+                <div class="addons">12": Cheese $13.95 • 1 $15.45 • 2 $16.95 • 3 $18.45 • 4 $19.95 • 16": Cheese $17.95 • 1 $19.95 • 2 $21.95 • 3 $23.95 • 4 $25.95</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chicago Deep Dish</strong></div>
+                <div class="price">$19.95+</div>
+                <div class="desc">Cheese $19.95 • 1 ingredient $21.95 • 2 $23.95 • 3 $25.95 • 4 $27.95</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- KIDS -->
+          <div id="kids" class="panel menu-section">
+            <h3>Kids' Menu <small>Includes kid-size soft drink + ice cream cup</small></h3>
+            <div class="items">
+              <div class="item">
+                <div class="item-title"><strong>Spaghetti</strong></div>
+                <div class="price">$5.95</div>
+                <div class="desc">Marinara + breadstick.</div>
+                <div class="addons">Add 3 meatballs +2.00</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Chicken Tenders</strong></div>
+                <div class="price">$5.95</div>
+                <div class="desc">Two tenders with fries + ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Mac & Cheese Bites</strong></div>
+                <div class="price">$5.95</div>
+                <div class="desc">Five bites with fries + ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Grilled Cheese</strong></div>
+                <div class="price">$5.95</div>
+                <div class="desc">With fries.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Corn Dogs</strong></div>
+                <div class="price">$5.95</div>
+                <div class="desc">Five with fries + ranch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-title"><strong>Cheese Pizza</strong></div>
+                <div class="price">$5.95</div>
+                <div class="addons">Add pepperoni +50¢</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DAILY SPECIALS -->
+    <section id="specials">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Daily Specials</h2>
+          <div class="tools"><span class="chip">No substitutions • While supplies last</span></div>
+        </div>
+
+        <div class="panel" style="padding:16px;">
+          <div class="specials">
+            <div class="special">
+              <h4>Monday — Wing Night</h4>
+              <p>Half-priced wings • Dine in only • 4pm to close</p>
+            </div>
+            <div class="special">
+              <h4>Tuesday — $2 Off Burgers</h4>
+              <p>Dine in or carry out • 4pm to 9pm</p>
+            </div>
+            <div class="special">
+              <h4>Wednesday — Broasted Chicken Basket</h4>
+              <p>With fries + coleslaw (no substitutions) • $9.95 • 4pm to 8pm</p>
+            </div>
+            <div class="special">
+              <h4>Thursday — 16" Two Topping Pizza</h4>
+              <p>With cheese bread + pitcher • Soda $24.95 • Domestic $28.95 • Premium $30.95 • Dine in only</p>
+            </div>
+            <div class="special">
+              <h4>Friday — Fish Fry</h4>
+              <p>Dine in or carry out • 4pm to 9pm</p>
+            </div>
+            <div class="special">
+              <h4>Saturday — BBQ Ribs</h4>
+              <p>With fries + house salad • Half $19.95 • Full $29.95 • 4pm to 9pm</p>
+            </div>
+            <div class="special">
+              <h4>Sunday — Broasted Chicken Plate</h4>
+              <p>Breast/wing/thigh/leg + sides • $12.95 • Dine in or carry out • 4pm to 7pm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <div class="tools"><span class="chip">Replace with your real info</span></div>
+        </div>
+
+        <div class="panel" style="padding:16px;">
+          <div class="grid2">
+            <div class="card">
+              <h3>Phone</h3>
+              <!-- Replace this -->
+              <p><strong>(920) 000-0000</strong></p>
+              <small class="muted">Tap to call on mobile once you replace it.</small>
+            </div>
+            <div class="card">
+              <h3>Address</h3>
+              <!-- Replace this -->
+              <p><strong>Your Address Here</strong><br/><span class="muted">City, WI</span></p>
+              <small class="muted">Add a Google Maps link once you have the address.</small>
+            </div>
+          </div>
+          <div class="card" style="margin-top:12px;">
+            <h3>Banquets / Events</h3>
+            <p class="muted">Add a short line here about booking, capacity, and contact method.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <strong>Chicago Street Pub, Grill & Banquets</strong>
+          <small>© <span id="year"></span> • All rights reserved.</small>
+        </div>
+        <div>
+          <small>Made for fast loading + easy updates.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menu search (simple + fast)
+    const input = document.getElementById("menuSearch");
+    const items = Array.from(document.querySelectorAll(".item"));
+
+    function normalize(s){ return (s || "").toLowerCase().trim(); }
+
+    input.addEventListener("input", () => {
+      const q = normalize(input.value);
+      items.forEach(el => {
+        const extra = el.getAttribute("data-search") || "";
+        const text = normalize(el.innerText + " " + extra);
+        el.style.display = (!q || text.includes(q)) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
